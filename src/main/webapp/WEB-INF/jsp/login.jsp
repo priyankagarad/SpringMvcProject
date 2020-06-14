@@ -2,22 +2,15 @@
 <br>
 <head>
     <title>Login Form</title>
-    <link rel="stylesheet" href="style.css">
 </head>
-</br></br>
-</br></br>
-</br></br>
+
 <body>
-    <title> Login form </title>
-<div class = "form">
-    <div action="Login">
+${message}
         <form action="Login" >
-        <input type="text" name="UserName" placeholder="UserName">
-        <input type="password" name="Password" placeholder="Password">
-        <input type="submit" name="submit" value="Login">
-        <a href="Registration.jsp">Registration</a>
+            <input type="text" name="UserName" placeholder="UserName"></br></br>
+            <input type="password" name="Password" placeholder="Password"></br></br>
+            <input type="submit" name="submit" value="Login"></br></br>
+            <a href="register">Registration</a></br></br>
         </form>
-    </div>
-    </div>
 </body>
 </html>
