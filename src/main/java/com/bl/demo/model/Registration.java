@@ -4,7 +4,7 @@ public class Registration {
     private String username;
     private String password;
     private String email;
-    private String registrationdate;
+    private String registrationDate;
 
     public Integer getId() {
         return id;
@@ -38,10 +38,10 @@ public class Registration {
     }
 
     public String getRegistrationdate() {
-        return registrationdate;
+        return registrationDate;
     }
 
     public void setRegistrationdate(String registrationdate) {
-        this.registrationdate = registrationdate;
+        this.registrationDate = registrationdate;
     }
 }
