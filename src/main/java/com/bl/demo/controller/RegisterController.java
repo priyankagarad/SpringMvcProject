@@ -1,31 +1,30 @@
-package com.bl.controller;
-import com.bl.dao.RegisterDao;
-import com.bl.model.RegistrationModel;
+package com.bl.demo.controller;
+import com.bl.demo.repository.RegistrationDetail;
+import com.bl.demo.model.Registration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class RegisterController
 {
-    @RequestMapping("/")
-    public String Home(){
+    @RequestMapping(value = "",method = RequestMethod.GET)
+    public String home(){
         return "login";
     }
 
-    @RequestMapping("/Login")
+    @RequestMapping("/loginServlet")
     public String display(HttpServletRequest req, Model m)
     {
-        /*read the provided form data*/
         String name=req.getParameter("UserName");
         String password=req.getParameter("Password");
-
         if(password.equals("priya")) {
             String msg="Hello"+ name;
 
-            /*add a message to the model*/
+            /** add a message to the model */
             m.addAttribute("message", msg);
             return "viewpage";
 
@@ -42,19 +41,8 @@ public class RegisterController
     }
 
     @RequestMapping("/save")
-    public String saveRegistration(HttpServletRequest request,Model m){
-        RegisterDao registerDao=new RegisterDao();
-         String name=  request.getParameter("Name");
-         String email=   request.getParameter("EmailId");
-         String password= request.getParameter("Password");
-         String registerdate= request.getParameter("RegisteredDate");
-
-         RegistrationModel registration=new RegistrationModel();
-         registration.setUsername(name);
-         registration.setEmail(email);
-         registration.setPassword(password);
-         registration.setRegistrationdate(registerdate);
-         System.out.println(registration.getEmail());
+    public String saveRegistration(Model m,Registration registration){
+         RegistrationDetail registerDao=new RegistrationDetail();
          Boolean addstatus=registerDao.save(registration);
          if (addstatus) {
             String msg="data save successfully";

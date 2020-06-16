@@ -1,4 +1,4 @@
-package com.bl.model;
+package com.bl.demo.model;
 public class Login {
     private String username;
     private String password;
