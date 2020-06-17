@@ -1,6 +1,6 @@
 package com.bl.demo.repository;
-import com.bl.demo.model.Registration;
+import com.bl.demo.model.Employee;
 
 public interface RegisterInterface {
-    public Boolean save(Registration registration);
+    public Boolean save(Employee registration);
 }

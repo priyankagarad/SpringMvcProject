@@ -1,6 +1,11 @@
+/***********************************************************************************************************
+ * @Purpose:- RegistrationDetail is DAO class,used to perform Database operation
+ * @Author:- priyanka
+ * @Date:- 13/6/2020
+ ************************************************************************************************************/
 package com.bl.demo.repository;
 import com.bl.demo.connection.ConnectionClass;
-import com.bl.demo.model.Registration;
+import com.bl.demo.model.Employee;
 import org.springframework.stereotype.Repository;
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -8,7 +13,7 @@ import java.time.LocalDateTime;
 @Repository
 public class RegistrationDetail implements RegisterInterface {
     @Override
-    public Boolean save(Registration registration) {
+    public Boolean save(Employee registration) {
     Boolean addstatus=false;
         try {
             System.out.println("inside save query");

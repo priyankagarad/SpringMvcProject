@@ -16,12 +16,12 @@
             return false;
         }
     }
-
 </script>
 
 <body>
         <form action="Login" name="myform" onsubmit="return validateform()" >
             <div class="loginBox">
+                <h3>${message}</h3>
                 <h1>Login </h1>
 
                 <form action="loginServlet" method="get">

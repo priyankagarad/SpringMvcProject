@@ -1,5 +1,5 @@
 package com.bl.demo.model;
-public class Registration {
+public class Employee {
     private Integer id;
     private String username;
     private String password;
