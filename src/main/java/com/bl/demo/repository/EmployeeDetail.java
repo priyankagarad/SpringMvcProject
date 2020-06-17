@@ -11,7 +11,7 @@ import java.sql.*;
 import java.time.LocalDateTime;
 
 @Repository
-public class RegistrationDetail implements RegisterInterface {
+public class EmployeeDetail implements RegisterInterface {
     @Override
     public Boolean save(Employee registration) {
     Boolean addstatus=false;

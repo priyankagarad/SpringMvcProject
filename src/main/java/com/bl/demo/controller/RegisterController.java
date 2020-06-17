@@ -6,7 +6,7 @@
  * @Date:- 13/6/2020
  ************************************************************************************************************/
 package com.bl.demo.controller;
-import com.bl.demo.repository.RegistrationDetail;
+import com.bl.demo.repository.EmployeeDetail;
 import com.bl.demo.model.Employee;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,7 +47,7 @@ public class RegisterController {
 
     @RequestMapping("/save")
     public String saveRegistration(Model m, Employee registration) {
-        RegistrationDetail registerDao = new RegistrationDetail();
+        EmployeeDetail registerDao = new EmployeeDetail();
         Boolean addstatus = registerDao.save(registration);
         if (addstatus) {
             String msg = "data save successfully";
