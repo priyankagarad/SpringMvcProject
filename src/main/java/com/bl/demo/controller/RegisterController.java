@@ -17,22 +17,22 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class RegisterController {
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home() {
         return "login";
     }
 
-    @RequestMapping("/loginServlet")
+    @RequestMapping("/Login")
     public String display(HttpServletRequest req, Model m) {
+        EmployeeDetail employeeDetail = new EmployeeDetail();
         String name = req.getParameter("UserName");
         String password = req.getParameter("Password");
-        if (password.equals("priya")) {
+        String s = employeeDetail.checkLogin(name, password);
+        if (s.equals("SUCCESS")) {
             String msg = "Hello" + name;
-
-            /** add a message to the model */
             m.addAttribute("message", msg);
             return "viewpage";
-
         } else {
             String msg = "Sorry " + name + ". You entered an incorrect password";
             m.addAttribute("message", msg);
@@ -46,16 +46,16 @@ public class RegisterController {
     }
 
     @RequestMapping("/save")
-    public String saveRegistration(Model m, Employee registration) {
-        EmployeeDetail registerDao = new EmployeeDetail();
-        Boolean addstatus = registerDao.save(registration);
+    public String saveRegistration(Model model, Employee registration) {
+       EmployeeDetail employeeDetail = new EmployeeDetail();
+        Boolean addstatus = employeeDetail.save(registration);
         if (addstatus) {
             String msg = "data save successfully";
-            m.addAttribute("message", msg);
+            model.addAttribute("message", msg);
             return "login";
         } else {
             String msg = "data not save";
-            m.addAttribute("message", msg);
+            model.addAttribute("message", msg);
             return "register";
         }
     }

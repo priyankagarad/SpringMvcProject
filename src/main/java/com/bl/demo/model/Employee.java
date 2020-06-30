@@ -44,4 +44,15 @@ public class Employee {
     public void setRegistrationdate(String registrationdate) {
         this.registrationDate = registrationdate;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", registrationDate='" + registrationDate + '\'' +
+                '}';
+    }
 }

@@ -17,14 +17,12 @@
         }
     }
 </script>
-
 <body>
         <form action="Login" name="myform" onsubmit="return validateform()" >
             <div class="loginBox">
                 <h3>${message}</h3>
                 <h1>Login </h1>
-
-                <form action="loginServlet" method="get">
+                <form action="login" method="post">
                     <input type="text" name="UserName" placeholder="UserName">
                     <input type="password" name="Password" placeholder="Password">
                     <input type="submit" name="submit" value="Login">

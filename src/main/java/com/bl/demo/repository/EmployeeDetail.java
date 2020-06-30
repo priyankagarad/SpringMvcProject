@@ -18,7 +18,7 @@ public class EmployeeDetail implements RegisterInterface {
         try {
             System.out.println("inside save query");
             PreparedStatement st = ConnectionClass.getConnection().prepareStatement
-                    ("insert into registrationmodel(username ,password,email,registrationdate) values(?,?,?,?)");
+                    ("insert into employee(username ,password,email,registrationdate) values(?,?,?,?)");
             st.setString(1, registration.getUsername());
             st.setString(2, registration.getPassword());
             st.setString(3, registration.getEmail());
@@ -32,5 +32,28 @@ public class EmployeeDetail implements RegisterInterface {
             e.printStackTrace();
         }
     return addstatus;
+    }
+
+    public String checkLogin(String name, String password) {
+        try
+        {
+            Connection  con = ConnectionClass.getConnection();
+            Statement statement = con.prepareStatement("select username,password from employee");
+            ResultSet resultSet = statement.executeQuery("select username,password from employee");
+
+            while(resultSet.next())
+            {
+               String userName = resultSet.getString("username");
+               String passwordDb = resultSet.getString("password");
+
+                if(name.equals(userName) && password.equals(passwordDb))
+                {
+                    return "SUCCESS";
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Invalid user credentials";
     }
 }
