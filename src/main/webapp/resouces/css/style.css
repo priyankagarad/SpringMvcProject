@@ -12,6 +12,15 @@ h1{
     font-size: 30px;
 }
 
+h2{
+    padding: 0;
+    text-align: center;
+    font-size: 30px;
+    color: red;
+    background: rosybrown;
+
+}
+
 h3{
     padding: 0;
     text-align: center;
